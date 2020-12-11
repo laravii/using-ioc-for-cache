@@ -4,9 +4,9 @@ Um pequeno exemplo, implementado cache em consulta aplicando dois conceitos do a
 
 > "Muitas interfaces de clientes específicas, são melhores do que uma para todos propósitos."
 
-Em outras palavras "Seja coeso na criação de interfaces para que não seja necessario fazer implementação desnecessaria em classes especializadas"(quanto mais enxuta melhor).
+Em outras palavras, "Seja coeso na criação de interfaces para que não seja necessario fazer implementação desnecessaria em classes especializadas"(quanto mais enxuta melhor).
 
-Trabalharemos em cima da interface **ICustomerReadRepository** que possui o método
+Trabalharemos em cima da interface **ICustomerReadRepository** , que possui o método
 **getById**:
 
 ```ts
@@ -17,7 +17,7 @@ export interface ICustomerReadRepository {
 }
 ```
 
-A implementação que seguirá logo abaixo tem um [Decorator](https://www.typescriptlang.org/docs/handbook/decorators.html) **@injectable** que indica para a biblioteca de ioc, que essa classe pode ser "Injetada", como veremos no próximo tópico;
+A implementação que seguirá logo abaixo, tem um [Decorator](https://www.typescriptlang.org/docs/handbook/decorators.html) **@injectable** que indica para a biblioteca de ioc, que essa classe pode ser "Injetada", como veremos no próximo tópico;
 
 ```ts
 import { injectable } from 'inversify';
@@ -173,7 +173,7 @@ export { ioc };
 
 ### Terceiro passo
 
-Agora vou adicionar a **magia**, adicione a injeção da consulta em base, na classe de cache (é ficou confuso essa frase, vamos ao código, que fica fácil de entender):
+Agora é a hora de fazer a **magia** acontecer, adicione a injeção da consulta em base, na classe de cache (é ficou confuso essa frase, vamos ao código, que fica fácil de entender):
 
 ```ts
 import { injectable, inject } from 'inversify';
@@ -214,7 +214,7 @@ export class CustomerReadRedisRepository implements ICustomerReadRepository {
 
 ```
 
-Fim, é algo bem simples, mas podeser usado atém em camadas anti-corrupção, enfim se tiver curiosidade/dúvida sobre configuração em uma api express, swagger, execute esse projeto, tem mais código hehe.
+Fim, é algo bem simples, mas pode ser usado até em camadas anti-corrupção, enfim se tiver curiosidade/dúvida sobre configuração em uma api express, swagger, execute esse projeto, tem mais código hehe.
 
 ## Para Executar o Projeto
 
